@@ -239,18 +239,124 @@ footer { border-top:1px solid rgba(74,143,212,0.15); padding:28px 50px; display:
 .f-brand { font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; color:rgba(74,143,212,0.45); text-transform:uppercase; }
 .f-copy { font-size:9px; color:rgba(107,143,173,0.45); letter-spacing:1px; }
 
+/* Hamburger menu */
+.nav-burger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.nav-burger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; transition:all .3s; }
+.nav-burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity:0; }
+.nav-burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+@media(max-width:900px){
+  .nav-burger { display:flex; }
+  .nav-links {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(10,42,80,0.98); flex-direction:column;
+    justify-content:center; align-items:center; gap:36px; z-index:190;
+  }
+  .nav-links.open { display:flex; }
+  .nav-links a { font-size:14px; letter-spacing:4px; color:rgba(255,255,255,0.8); }
+  .nav-links a:hover { color:var(--gold); }
+}
+
+
 @media(max-width:900px){
   nav { padding:16px 20px; }
   .nav-links { display:none; }
-  .container { padding:0 20px; }
-  .hl-grid { grid-template-columns:1fr; }
+  .container { padding:0 24px; }
+  .section { padding:70px 0; }
+
+  /* Hero */
+  .hero-h1 { font-size:clamp(56px,14vw,90px); letter-spacing:3px; }
+  .hero-sub { font-size:12px; }
+  .hero-kpis { flex-wrap:wrap; justify-content:center; max-width:420px; }
+  .hero-kpi { padding:14px 20px; border-right:none; border-bottom:1px solid rgba(196,154,60,0.2); width:50%; text-align:center; }
+  .hero-kpi:nth-child(odd) { border-right:1px solid rgba(196,154,60,0.2); }
+  .hero-kpi:last-child { border-bottom:none; }
+  .kpi-val { font-size:30px; }
+
+  /* Sections */
+  .s-h2 { font-size:clamp(28px,6vw,42px); }
+  .s-intro { font-size:14px; }
+
+  /* Grilles */
+  .hl-grid { grid-template-columns:1fr; gap:2px; }
   .act-grid { grid-template-columns:1fr 1fr; }
   .gal-grid { columns:2; }
+
+  /* Tour */
   .tour-shell { grid-template-columns:1fr; }
   .tour-sidebar { display:none; }
+  .t-img-area { min-height:300px; }
+  .t-cap-h { font-size:18px; }
+
+  /* Contact */
   .cgrid { grid-template-columns:1fr; }
-  .hero-kpis { gap:0; }
-  .hero-kpi { padding:0 18px; }
+  .cbox { padding:30px 24px; }
+  #contact { padding:80px 24px; }
+}
+
+/* ── MOBILE (max 600px) ── */
+@media(max-width:600px){
+  /* Nav */
+  nav { padding:14px 16px; }
+  .nav-logo { font-size:18px; letter-spacing:3px; }
+
+  /* Hero */
+  .hero-h1 { font-size:clamp(48px,16vw,72px); letter-spacing:2px; margin-bottom:10px; }
+  .hero-badge { font-size:7.5px; letter-spacing:3px; }
+  .hero-sub { font-size:11px; letter-spacing:2px; margin-bottom:36px; }
+  .hero-kpis { max-width:320px; }
+  .hero-kpi { padding:12px 16px; }
+  .kpi-val { font-size:26px; }
+  .kpi-lbl { font-size:7px; }
+  .scroll-cue { display:none; }
+
+  /* Sections */
+  .section { padding:56px 0; }
+  .container { padding:0 16px; }
+  .s-tag { font-size:7.5px; letter-spacing:3px; }
+  .s-h2 { font-size:clamp(24px,8vw,36px); letter-spacing:0; margin-bottom:12px; }
+  .s-intro { font-size:13px; line-height:1.75; margin-bottom:36px; }
+
+  /* Map pins — masquer labels sur très petit écran */
+  .pin-lbl { font-size:7.5px; padding:2px 7px; }
+
+  /* Tour */
+  .t-img-area { min-height:240px; }
+  .t-caption { padding:18px 16px 14px; }
+  .t-cap-num { font-size:7.5px; }
+  .t-cap-h { font-size:15px; }
+  .t-cap-p { font-size:11px; line-height:1.55; }
+  .t-nav-btn { font-size:8.5px; padding:11px; }
+
+  /* Points forts */
+  .hl-card { padding:28px 20px; }
+  .hl-n { font-size:40px; }
+  .hl-title { font-size:8.5px; }
+  .hl-text { font-size:12.5px; }
+
+  /* Activités */
+  .act-grid { grid-template-columns:1fr; gap:2px; }
+  .act-card { padding:20px 18px; display:flex; align-items:flex-start; gap:14px; }
+  .act-icon { font-size:20px; margin-bottom:0; flex-shrink:0; }
+  .act-name { font-size:14px; }
+  .act-detail { font-size:10.5px; }
+
+  /* Galerie */
+  .gal-grid { columns:1; }
+
+  /* Contact */
+  #contact { padding:60px 16px; }
+  .s-h2[style] { font-size:36px !important; }
+  .cbox { padding:24px 16px; margin-top:32px; }
+  .clbl { font-size:7.5px; }
+  .cval { font-size:12.5px; }
+  .cgrid { gap:16px 0; }
+
+  /* Footer */
+  footer { flex-direction:column; gap:8px; text-align:center; padding:20px 16px; }
+  .f-brand { font-size:10px; }
+  .f-copy { font-size:8px; }
 }
 </style>
 </head>
@@ -258,14 +364,17 @@ footer { border-top:1px solid rgba(74,143,212,0.15); padding:28px 50px; display:
 
 <nav id="topnav">
   <div class="nav-logo">COLI<em>SEUM</em></div>
-  <div class="nav-links">
-    <a href="#localisation">Localisation</a>
-    <a href="#visite">Visite Virtuelle</a>
-    <a href="#points-forts">Points Forts</a>
-    <a href="#activites">Activités</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#contact">Contact</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#localisation" onclick="closeMenu()">Localisation</a>
+    <a href="#visite" onclick="closeMenu()">Visite Virtuelle</a>
+    <a href="#points-forts" onclick="closeMenu()">Points Forts</a>
+    <a href="#activites" onclick="closeMenu()">Activités</a>
+    <a href="#galerie" onclick="closeMenu()">Galerie</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
   </div>
+  <button class="nav-burger" id="navburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ████ HERO DRONE ████ -->
@@ -481,6 +590,16 @@ const IMGS = {
 window.addEventListener('scroll', () =>
   document.getElementById('topnav').classList.toggle('scrolled', scrollY > 80)
 );
+
+// ── Hamburger menu ──
+function toggleMenu() {
+  document.getElementById('navlinks').classList.toggle('open');
+  document.getElementById('navburger').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navlinks').classList.remove('open');
+  document.getElementById('navburger').classList.remove('open');
+}
 
 // ── Hero background ──
 function initHero() {
