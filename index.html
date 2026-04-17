@@ -436,7 +436,7 @@ footer { border-top:1px solid rgba(74,143,212,0.15); padding:28px 50px; display:
       <div><div class="clbl">Société</div><div class="cval">Today's Loisirs s.a.r.l.</div></div>
       <div><div class="clbl">Gérant</div><div class="cval">Mr. Rached BLIBECHE</div></div>
       <div><div class="clbl">Architecte Projet</div><div class="cval">Faouzi FLISS — DPLG, La Marsa</div></div>
-      <div><div class="clbl">Contact</div><div class="cval">+33 7 84 50 42 03<br>ff.artcad1331@gmail.com</div></div>
+      <div><div class="clbl">Contact</div><div class="cval">+33 7 84 50 42 03<br>rached.blibeche@todaysloisirs.com</div></div>
       <div><div class="clbl">Adresse Projet</div><div class="cval">Zone Touristique Cap Gammarth<br>Lot A1/d, Tunis-Nord, Tunisie</div></div>
       <div><div class="clbl">Dossier Investisseur</div><div class="cval">Disponible sous NDA<br>sur demande écrite</div></div>
     </div>
@@ -548,7 +548,12 @@ function tGo(i) {
   const el = document.getElementById(`timg${tIdx}`);
   const navEl = document.querySelectorAll('.t-item')[tIdx];
   if (el) el.classList.add('on');
-  if (navEl) { navEl.classList.add('on'); navEl.scrollIntoView({block:'nearest',behavior:'smooth'}); }
+  if (navEl) {
+    navEl.classList.add('on');
+    // Scroll uniquement dans la sidebar, pas dans la page entière
+    const sidebar = document.getElementById('tsidebar');
+    if (sidebar) sidebar.scrollTop = navEl.offsetTop - sidebar.offsetTop - 40;
+  }
   const st = STOPS[tIdx];
   document.getElementById('tcapnum').textContent = `${String(tIdx+1).padStart(2,'0')} / ${STOPS.length}`;
   document.getElementById('tcaph').textContent = st.title;
