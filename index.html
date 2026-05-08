@@ -198,10 +198,11 @@ nav.scrolled { background:rgba(10,42,80,0.98); border-bottom:1px solid rgba(74,1
 .act-card {
   background:var(--white); padding:22px 22px 16px; cursor:pointer;
   transition:all .25s; position:relative; border-bottom:3px solid transparent;
+  display:flex; flex-direction:column;
 }
 .act-card:hover { background:#EBF2FA; transform:translateY(-2px); border-bottom-color:var(--blue); box-shadow:0 6px 20px rgba(10,42,80,0.10); }
 .act-plan-cta {
-  display:inline-flex; align-items:center; gap:6px; margin-top:10px; clear:both;
+  display:inline-flex; align-items:center; gap:6px; margin-top:auto; padding-top:12px; clear:both;
   font-size:9px; letter-spacing:2px; font-weight:700; text-transform:uppercase;
   color:var(--blue); border:1px solid var(--blue-pale); border-radius:2px;
   padding:5px 10px; transition:all .2s;
